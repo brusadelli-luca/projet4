@@ -5,7 +5,7 @@ PUT : Replaces target resource with the updated content.
 DELETE : Deletes target resource provided as URL.
 """
 
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, jsonify
 from functions import transform_dl_fct, feature_USE_fct
 import pickle
 
@@ -58,7 +58,7 @@ def success(sentence):
 def predict_tags():
     if request.method == 'POST':
         sentence = request.args.get('sentence')
-        return {'response' : pred_fct(model, sentence)}  #redirect(url_for('success', sentence=sentence))
+        return jsonify({'response' : pred_fct(model, sentence)})  #redirect(url_for('success', sentence=sentence))
 
     else:
         sentence = request.args.get('sentence')

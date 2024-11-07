@@ -9,7 +9,7 @@ with st.form(key='my_form'):
 	submit_button = st.form_submit_button(label='Get Tags !')
 
 if submit_button:
-    response = requests.post("http://localhost:5000/predict_tags", params={'sentence': text_input})
+    response = requests.post("https://vrjr2ghn2hkqghkvf4hmt5.streamlit.app/predict_tags", params={'sentence': text_input})
     result = response.json()
 
     st.write(result['response'])

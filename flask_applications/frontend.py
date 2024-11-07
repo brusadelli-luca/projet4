@@ -13,6 +13,6 @@ if submit_button:
     result = response.json()
 
     if 'response' in result.keys():
-	st.write(result['response'])
+	    st.write(result['response'])
     else:
-	st.write('NO RESPONSE IN RESULT')
+	    st.write('NO RESPONSE IN RESULT')

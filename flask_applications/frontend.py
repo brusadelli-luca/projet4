@@ -15,4 +15,4 @@ if submit_button:
         st.write(result['response'])
     except requests.exceptions.JSONDecodeError as e:
         result = response.text
-        st.write(result)
+        st.write(type(result))

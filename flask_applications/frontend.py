@@ -14,5 +14,5 @@ if submit_button:
         result = response.json()
         st.write(result['response'])
     except requests.exceptions.JSONDecodeError as e:
-        result = response
+        result = response.text
         st.write(result)

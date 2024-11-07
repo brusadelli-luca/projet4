@@ -12,10 +12,7 @@ if submit_button:
     response = requests.post("https://vrjr2ghn2hkqghkvf4hmt5.streamlit.app/predict_tags", params={'sentence': text_input})
     try:
         result = response.json()
+        st.write(result['response'])
     except requests.exceptions.JSONDecodeError as e:
         result = response.text
-
-    if 'response' in result.keys():
-	    st.write(result['response'])
-    else:
-	    st.write(result)
+        st.write(result)

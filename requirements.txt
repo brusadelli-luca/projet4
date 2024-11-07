@@ -16,7 +16,6 @@ transformers
 ipywidgets
 tf-keras
 tensorflow_hub
-tensorflow_text
 streamlit
 kedro
 pyspark

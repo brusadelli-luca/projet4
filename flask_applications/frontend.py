@@ -10,9 +10,12 @@ with st.form(key='my_form'):
 
 if submit_button:
     response = requests.post("https://vrjr2ghn2hkqghkvf4hmt5.streamlit.app/predict_tags", params={'sentence': text_input})
-    result = response.json()
+    try:
+        result = response.json()
+    except requests.exceptions.JSONDecodeError as e:
+        result = response.text
 
     if 'response' in result.keys():
 	    st.write(result['response'])
     else:
-	    st.write('NO RESPONSE IN RESULT')
+	    st.write(result)
